@@ -1,0 +1,41 @@
+# Sistema simples de usuários em PHP
+
+O código implementa uma classe chamada **Validator**, responsável por operações básicas com usuários, e um arquivo de teste que mostra alguns cenários rodando no navegador.
+
+---
+
+## Arquivos
+
+### `validator.php`
+Contém a classe **Validator**, que possui os seguintes métodos:
+
+- `register(nome, email, senha)` → cadastra um novo usuário, validando o e-mail e verificando duplicidade.  
+- `login(email, senha)` → realiza a autenticação verificando o hash da senha.  
+- `resetPassword(id, novaSenha)` → redefine a senha de um usuário já existente.  
+- `findUserByEmail(email)` → busca usuário pelo e-mail.  
+- `findUserById(id)` → busca usuário pelo ID.  
+- `isEmailValid(email)` → verifica se o formato do e-mail é válido.  
+
+Um usuário inicial já está definido no array interno:
+- Nome: **João Silva**  
+- E-mail: `joao@email.com`  
+- Senha: `SenhaForte1`
+
+---
+
+### `testes.php`
+Executa alguns casos de uso da classe e mostra os resultados em HTML:
+
+1. Cadastro válido  
+2. Cadastro com e-mail inválido  
+3. Login com senha incorreta  
+4. Reset de senha  
+5. Cadastro com e-mail duplicado  
+
+---
+
+## Como executar
+
+1. Coloque os arquivos em uma pasta do seu servidor local (exemplo: `htdocs` no XAMPP).  
+2. Abra no navegador:  
+
