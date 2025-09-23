@@ -52,6 +52,18 @@ class Validator
             return ['status' => 'error', 'message' => 'E-mail já está em uso'];
         }
 
+        if (strlen($password) < 8) {
+            return ['status' => 'error', 'message' => 'A senha deve ter no mínimo 8 caracteres.'];
+        }
+
+        if (!preg_match('/[a-z]/', $password)) {
+            return ['status' => 'error', 'message' => 'A senha deve conter pelo menos uma letra minúscula.'];
+        }
+
+        if (!preg_match('/[A-Z]/', $password)) {
+            return ['status' => 'error', 'message' => 'A senha deve conter pelo menos uma letra maiúscula.'];
+        }
+
         $newId = count($this->users) + 1;
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
