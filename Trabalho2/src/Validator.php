@@ -6,7 +6,7 @@ class Validator
         ['id' => 1, 'nome' => 'João Silva', 'email' => 'joao@email.com', 'senha' => '$2y$10$TqUv1VqL1Q5zQxM5xQ6R8.hE8oE2J9N.iH6.iM.iY2I.t.yVlG2Y.']
     ];
 
-    public function findUserByEmail(string $email): ?array
+    private function findUserByEmail(string $email): ?array
     {
         foreach ($this->users as $user) {
             if ($user['email'] === $email) {
@@ -16,7 +16,7 @@ class Validator
         return null;
     }
 
-    public function findUserById(int $id): ?array
+    private function findUserById(int $id): ?array
     {
         foreach ($this->users as $user) {
             if ($user['id'] === $id) {
@@ -26,7 +26,7 @@ class Validator
         return null;
     }
 
-    public function isEmailValid(string $email): bool
+    private function isEmailValid(string $email): bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
