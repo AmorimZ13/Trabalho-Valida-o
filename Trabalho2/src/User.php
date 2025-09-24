@@ -15,6 +15,10 @@ class User
         $this->senha = $senha;
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     public function getNome(): string
     {
@@ -29,6 +33,11 @@ class User
     public function getSenha(): string
     {
         return $this->senha;
+    }
+
+    public function setSenha(string $senha): void
+    {
+        $this->senha = $senha;
     }
 }
 ?>
