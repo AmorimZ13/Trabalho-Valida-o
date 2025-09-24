@@ -1,8 +1,12 @@
 <?php
 
-require_once 'validator.php';
+require_once 'User.php';
+require_once 'UserManager.php';
+require_once 'Validator.php';
 
-$validator = new Validator();
+$userManager = new UserManager();
+
+$validator = new Validator($userManager);
 
 echo "<h1>Testes rápidos</h1>";
 
@@ -19,12 +23,14 @@ $result = $validator->login('joao@email.com', 'Errada123');
 echo "Resultado: " . $result['message'] . "<br><br>";
 
 echo "<h2>4. Reset de senha</h2>";
+
 $result = $validator->resetPassword(1, 'NovaSenha1');
 echo "Resultado: " . $result['message'] . "<br><br>";
 
 echo "<h2>5. E-mail duplicado</h2>";
 $result = $validator->register('Ana', 'joao@email.com', 'SenhaDuplicada');
 echo "Resultado: " . $result['message'] . "<br><br>";
+
 
 echo "<h2>6. Senha muito curta (menos de 8 caracteres)</h2>";
 $result = $validator->register('Usuario Curto', 'curto@email.com', 'curta');
