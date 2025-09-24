@@ -8,7 +8,6 @@ class UserManager
 
     public function __construct()
     {
-
         $this->users[] = new User(
             1,
             'João Silva',
@@ -27,7 +26,7 @@ class UserManager
         return null;
     }
 
-    public function findById(int $id): ?User
+    public function findById(int $id)
     {
         foreach ($this->users as $user) {
             if ($user->getId() === $id) {
@@ -58,4 +57,5 @@ class UserManager
         return false;
     }
 }
+
 ?>
